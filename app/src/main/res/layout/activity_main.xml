@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable name="presenter" type="com.akhlgupta.databindingdemo.MainPresenter"/>
+        <variable name="viewmodel" type="com.akhlgupta.databindingdemo.CalculatorViewModel"/>
+        <!--<import type="com.akhlgupta.databindingdemo.R"/>-->
+        <!--<import type="android.view.View" />-->
+
+    </data>
+<LinearLayout
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.akhlgupta.databindingdemo.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Amount in IDR" />
+
+    <EditText
+        android:id="@+id/idrTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IDR"
+        android:text="@={viewmodel.idrAmount}"
+        android:inputType="number" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Amount in INR" />
+
+    <EditText
+        android:id="@+id/inrTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="INR"
+        android:text="@={viewmodel.inrAmount}"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/clearButton"
+        android:text="Clear"
+        android:onClick="@{()->presenter.clearFields(viewmodel)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+</layout>
